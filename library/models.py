@@ -1,15 +1,3 @@
-"""
-Консольное приложение для управления библиотекой книг.
-Приложение позволяет добавлять, удалять, искать и отображать книги.
-Каждая книга содержит следующие поля:
-• id (уникальный идентификатор, генерируется автоматически)
-• title (название книги)
-• author (автор книги)
-• year (год издания)
-• status (статус книги: “в наличии”, “выдана”)
-"""
-
-
 import json
 
 
@@ -105,7 +93,7 @@ class Library:
         try:
             results: list[Book] = []
             for book in self.books:
-                if query.lower() in str(getattr(book, field)).lower():
+                if str(query).lower() in str(getattr(book, field)).lower():
                     results.append(book)
             return results
         except ValueError:
