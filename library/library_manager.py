@@ -1,3 +1,15 @@
+"""
+Консольное приложение для управления библиотекой книг.
+Приложение позволяет добавлять, удалять, искать и отображать книги.
+Каждая книга содержит следующие поля:
+• id (уникальный идентификатор, генерируется автоматически)
+• title (название книги)
+• author (автор книги)
+• year (год издания)
+• status (статус книги: “в наличии”, “выдана”)
+"""
+
+
 from models import Book, Library
 
 
@@ -38,14 +50,14 @@ def main():
                 print('Книг не найдено')
 
         elif choice == '4':
-            books: list[Book] = library.load_books()
+            books = library.load_books()
             for book in books:
                 print(book)
 
         elif choice == '5':
-            id: int = int(input('Введите ID книги: '))
+            id = int(input('Введите ID книги: '))
             status: str = input('Введите статус книги: ')
-            message: str = library.change_status(id, status)
+            message = library.change_status(id, status)
             print(message)
 
         elif choice == '6':
